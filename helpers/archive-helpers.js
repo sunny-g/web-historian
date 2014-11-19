@@ -25,17 +25,28 @@ exports.initialize = function(pathsObj){
 // The following function names are provided to you to suggest how you might
 // modularize your code. Keep it clean!
 
+exports.archivedSites = function() {
+  return fs.readdirSync(exports.paths.archivedSites);
+};
+
 exports.readListOfUrls = function(){
+  // used ???
+  return fs.readFileSync(this.paths.list).toString()
 };
 
 exports.isUrlInList = function(){
+  // used by server when responding to client request for a URL
 };
 
 exports.addUrlToList = function(){
+  // used by server when we get a request for a new URL
 };
 
 exports.isURLArchived = function(){
+  // used by server when responding to client request for a URL
+  // used by worker
 };
 
 exports.downloadUrls = function(){
+  // used by worker
 };
