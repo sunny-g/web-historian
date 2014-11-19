@@ -26,12 +26,12 @@ exports.initialize = function(pathsObj){
 // modularize your code. Keep it clean!
 
 exports.archivedSites = function() {
-  return fs.readdirSync(exports.paths.archivedSites);
+  return fs.readdirSync(this.paths.archivedSites);
 };
 
-exports.readListOfUrls = function(){
-  // used ???
-  return fs.readFileSync(this.paths.list).toString()
+exports.readListOfUrls = function(callback){
+  // used whenever we need to read sites.txt
+  callback(fs.readFileSync(this.paths.list).toString().split('\n'))
 };
 
 exports.isUrlInList = function(){
